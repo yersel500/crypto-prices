@@ -8,13 +8,13 @@ export const FetchData = (data) => ({
   payload: data,
 });
 
-export const LoadData = () => async () => {
+export const LoadData = () => async (dispatch) => {
   const response = await fetch(URL);
-  const data = await response.json();
-  console.log(data);
+  const { data } = await response.json();
+  dispatch(FetchData(data));
 };
 
-export const CryptoReducer = (state, action) => {
+export const CryptoReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_DATA:
       return action.payload;
