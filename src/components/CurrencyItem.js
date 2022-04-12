@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const CurrencyItem = () => {
   const params = useParams();
@@ -12,6 +12,21 @@ const CurrencyItem = () => {
   const myLogo = `https://assets.coincap.io/assets/icons/${newSymbol}@2x.png`;
   return (
     <div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              Search Bar
+            </li>
+            <li>
+              <Link to="details">Details</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <img src={myLogo} alt={id} />
       <h2>
         Currency:

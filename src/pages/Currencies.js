@@ -15,17 +15,31 @@ const Currencies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   return (
     <div>
-      <input
-        value={searchParams.get('filter') || ''}
-        onChange={(e) => {
-          const filter = e.target.value;
-          if (filter) {
-            setSearchParams({ filter });
-          } else {
-            setSearchParams({});
-          }
-        }}
-      />
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <input
+                value={searchParams.get('filter') || ''}
+                onChange={(e) => {
+                  const filter = e.target.value;
+                  if (filter) {
+                    setSearchParams({ filter });
+                  } else {
+                    setSearchParams({});
+                  }
+                }}
+              />
+            </li>
+            <li>
+              <Link to="details">Details</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       {myState
         .filter((element) => {
           const filter = searchParams.get('filter');
