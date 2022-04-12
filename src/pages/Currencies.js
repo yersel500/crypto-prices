@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Currency from '../components/Currency';
 import { LoadData } from '../redux/CryptoReducer';
 
@@ -15,7 +15,7 @@ const Currencies = () => {
   return (
     <div>
       {myState.map((element) => (
-        <Link to={`/currency/${element.id}`} key={element.id}>
+        <Link to={`/${element.id}`} key={element.id}>
           <Currency
             name={element.id}
             symbol={element.symbol}
@@ -23,6 +23,7 @@ const Currencies = () => {
           />
         </Link>
       ))}
+      <Outlet />
     </div>
   );
 };
