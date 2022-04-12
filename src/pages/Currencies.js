@@ -18,7 +18,7 @@ const Currencies = () => {
     <div>
       <header>
         <nav>
-          <ul>
+          <ul className="ul-bar-container">
             <li>
               <Link to="/">
                 {' '}
@@ -29,6 +29,7 @@ const Currencies = () => {
             </li>
             <li>
               <input
+                className="input-search"
                 placeholder="Search by currency"
                 value={searchParams.get('filter') || ''}
                 onChange={(e) => {
@@ -41,14 +42,19 @@ const Currencies = () => {
                 }}
               />
             </li>
-            <li>
-              <Link to="details">Details</Link>
-            </li>
-            <li>
-              <FaMicrophone />
-            </li>
-            <li>
-              <FaRegSun />
+            <li className="last-bar-item">
+              <div className="icon-container">
+                <div>
+                  <Link to="/">
+                    <FaMicrophone />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/">
+                    <FaRegSun />
+                  </Link>
+                </div>
+              </div>
             </li>
           </ul>
         </nav>

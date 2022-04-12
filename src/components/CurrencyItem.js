@@ -15,7 +15,7 @@ const CurrencyItem = () => {
     <div>
       <header>
         <nav>
-          <ul>
+          <ul className="ul-bar-container">
             <li>
               <Link to="/">
                 <FaAngleLeft
@@ -24,16 +24,21 @@ const CurrencyItem = () => {
               </Link>
             </li>
             <li>
-              Search Bar
+              Details Page
             </li>
-            <li>
-              <Link to="details">Details</Link>
-            </li>
-            <li>
-              <FaMicrophone />
-            </li>
-            <li>
-              <FaRegSun />
+            <li className="last-bar-item">
+              <div className="icon-container">
+                <div>
+                  <Link to="/">
+                    <FaMicrophone />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/">
+                    <FaRegSun />
+                  </Link>
+                </div>
+              </div>
             </li>
           </ul>
         </nav>
