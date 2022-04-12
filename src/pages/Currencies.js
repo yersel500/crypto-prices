@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Outlet, useSearchParams } from 'react-router-dom';
+import { FaAngleLeft, FaRegSun, FaMicrophone } from 'react-icons/fa';
 import Currency from '../components/Currency';
 import { LoadData } from '../redux/CryptoReducer';
 
@@ -19,10 +20,16 @@ const Currencies = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                {' '}
+                <FaAngleLeft
+                  style={{ color: 'red', fontSize: '30px' }}
+                />
+              </Link>
             </li>
             <li>
               <input
+                placeholder="Search by currency"
                 value={searchParams.get('filter') || ''}
                 onChange={(e) => {
                   const filter = e.target.value;
@@ -36,6 +43,12 @@ const Currencies = () => {
             </li>
             <li>
               <Link to="details">Details</Link>
+            </li>
+            <li>
+              <FaMicrophone />
+            </li>
+            <li>
+              <FaRegSun />
             </li>
           </ul>
         </nav>

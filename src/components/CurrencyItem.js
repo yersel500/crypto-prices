@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { FaAngleLeft, FaRegSun, FaMicrophone } from 'react-icons/fa';
 
 const CurrencyItem = () => {
   const params = useParams();
@@ -16,13 +17,23 @@ const CurrencyItem = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <FaAngleLeft
+                  style={{ color: 'red', fontSize: '30px' }}
+                />
+              </Link>
             </li>
             <li>
               Search Bar
             </li>
             <li>
               <Link to="details">Details</Link>
+            </li>
+            <li>
+              <FaMicrophone />
+            </li>
+            <li>
+              <FaRegSun />
             </li>
           </ul>
         </nav>
