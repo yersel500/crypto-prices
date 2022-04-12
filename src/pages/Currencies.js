@@ -5,10 +5,12 @@ import { LoadData } from '../redux/CryptoReducer';
 
 const Currencies = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(LoadData());
-  }, []);
   const myState = useSelector((state) => state);
+  useEffect(() => {
+    if (myState.length === 0) {
+      dispatch(LoadData());
+    }
+  }, []);
   return (
     <div>
       {myState.map((element) => (
@@ -16,6 +18,7 @@ const Currencies = () => {
           name={element.id}
           key={element.id}
           symbol={element.symbol}
+          price={element.priceUsd}
         />
       ))}
     </div>
