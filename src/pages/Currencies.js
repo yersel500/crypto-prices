@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useSearchParams } from 'react-router-dom';
 import Currency from '../components/Currency';
 import { LoadData } from '../redux/CryptoReducer';
 
@@ -12,17 +12,37 @@ const Currencies = () => {
       dispatch(LoadData());
     }
   }, []);
+  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <div>
-      {myState.map((element) => (
-        <Link to={`/currency/${element.id}`} key={element.id}>
-          <Currency
-            name={element.id}
-            symbol={element.symbol}
-            price={element.priceUsd}
-          />
-        </Link>
-      ))}
+      <input
+        value={searchParams.get('filter') || ''}
+        onChange={(e) => {
+          const filter = e.target.value;
+          if (filter) {
+            setSearchParams({ filter });
+          } else {
+            setSearchParams({});
+          }
+        }}
+      />
+      {myState
+        .filter((element) => {
+          const filter = searchParams.get('filter');
+          if (!filter) return true;
+          const name = element.name.toLowerCase();
+          return name.startsWith(filter.toLowerCase());
+        })
+        .map((element) => (
+          <Link to={`/${element.id}`} key={element.id}>
+            <Currency
+              name={element.id}
+              symbol={element.symbol}
+              price={element.priceUsd}
+            />
+          </Link>
+        ))}
+      <Outlet />
     </div>
   );
 };
