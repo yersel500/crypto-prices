@@ -2,7 +2,7 @@
 
 # Real Time Crypto Price
 
-"Real Time Crypto Price" is a website that work with real live data from the CoinCap Company. The users can see in real time the prices of main cryptocurrencies. Also the user can select a specific cryptocurrency to get more details like: MarketCap, Rank, Symbol and Volume and Change in the last 24 hours.
+"Real-Time Crypto Price" is a website that works with real live data from the CoinCap Company. The users can see in real-time the prices of main cryptocurrencies. Also, the user can select a specific cryptocurrency to get more details like MarketCap, Rank, Symbol, Volume, and Change in the last 24 hours.
 
 ## Built With
 - React
