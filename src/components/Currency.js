@@ -7,7 +7,7 @@ const Currency = ({ name, symbol, price }) => {
   return (
     <div>
       <div className="arrow-container">
-        <FaRegArrowAltCircleRight />
+        <FaRegArrowAltCircleRight title="arrow-detail" />
       </div>
       <img src={myLogo} alt={name} className="currency-logo" />
       <div className="general-info">

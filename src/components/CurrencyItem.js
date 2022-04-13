@@ -19,6 +19,7 @@ const CurrencyItem = () => {
             <Link to="/">
               <FaAngleLeft
                 style={{ color: 'white', fontSize: '30px' }}
+                title="back"
               />
             </Link>
           </li>
@@ -60,7 +61,7 @@ const CurrencyItem = () => {
           <p>{rank}</p>
         </div>
         <div>
-          <h3>Symbol:</h3>
+          <h3 className="symbol-currency">Symbol:</h3>
           <p>{symbol}</p>
         </div>
         <div>
