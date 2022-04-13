@@ -13,36 +13,38 @@ const CurrencyItem = () => {
   const myLogo = `https://assets.coincap.io/assets/icons/${newSymbol}@2x.png`;
   return (
     <div>
-      <header>
-        <nav>
-          <ul className="ul-bar-container">
-            <li>
-              <Link to="/">
-                <FaAngleLeft
-                  style={{ color: 'red', fontSize: '30px' }}
-                />
-              </Link>
-            </li>
-            <li>
-              Details Page
-            </li>
-            <li className="last-bar-item">
-              <div className="icon-container">
-                <div>
-                  <Link to="/">
-                    <FaMicrophone />
-                  </Link>
-                </div>
-                <div>
-                  <Link to="/">
-                    <FaRegSun />
-                  </Link>
-                </div>
+      <nav>
+        <ul className="ul-bar-container">
+          <li>
+            <Link to="/">
+              <FaAngleLeft
+                style={{ color: 'white', fontSize: '30px' }}
+              />
+            </Link>
+          </li>
+          <li>
+            Details Page
+          </li>
+          <li className="last-bar-item">
+            <div className="icon-container">
+              <div>
+                <Link to="/">
+                  <FaMicrophone
+                    style={{ color: 'white', fontSize: '18px' }}
+                  />
+                </Link>
               </div>
-            </li>
-          </ul>
-        </nav>
-      </header>
+              <div>
+                <Link to="/">
+                  <FaRegSun
+                    style={{ color: 'white', fontSize: '18px' }}
+                  />
+                </Link>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
       <img src={myLogo} alt={id} />
       <h2>
         Currency:

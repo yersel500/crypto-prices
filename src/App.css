@@ -4,14 +4,24 @@
   box-sizing: border-box;
 }
 
-/* Style the navbar */
-ul {
-  list-style-type: none;
+body {
+  background-color: #4369b2;
 }
 
+/* Style the header */
+.main-title {
+  text-align: center;
+  color: white;
+  margin: 1rem;
+}
+
+/* Style the navbar */
 .ul-bar-container {
   display: flex;
   align-items: center;
+  list-style-type: none;
+  padding: 0.2rem;
+  background-color: #304e85;
 }
 
 .ul-bar-container > li {
@@ -39,6 +49,14 @@ ul {
   font-size: 20px;
   padding: 0.2rem;
   border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+
+::placeholder {
+  color: gainsboro;
+  font-style: italic;
 }
 
 /* End of style navbar */
@@ -48,21 +66,42 @@ ul {
 .currency-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
   justify-content: center;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
 .card-currency {
   width: 10.5rem;
   height: 12rem;
-  border: 1px solid gray;
   padding: 0.3rem;
   text-decoration: none;
   cursor: pointer;
 }
 
 /* Style each card */
+
+.card-currency > * {
+  color: #fff;
+}
+
+.card-currency:nth-child(4n+1) {
+  background-color: #4064a7;
+}
+
+.card-currency:nth-child(4n) {
+  background-color: #4064a7;
+}
+
+.card-currency:nth-child(4n+2) {
+  background-color: #395ea2;
+}
+
+.card-currency:nth-child(4n+3) {
+  background-color: #395ea2;
+}
+
 .currency-logo {
   width: 64px;
   height: 64px;

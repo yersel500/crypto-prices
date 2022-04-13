@@ -16,49 +16,51 @@ const Currencies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   return (
     <div>
-      <header>
-        <nav>
-          <ul className="ul-bar-container">
-            <li>
-              <Link to="/">
-                {' '}
-                <FaAngleLeft
-                  style={{ color: 'red', fontSize: '30px' }}
-                />
-              </Link>
-            </li>
-            <li>
-              <input
-                className="input-search"
-                placeholder="Search by currency"
-                value={searchParams.get('filter') || ''}
-                onChange={(e) => {
-                  const filter = e.target.value;
-                  if (filter) {
-                    setSearchParams({ filter });
-                  } else {
-                    setSearchParams({});
-                  }
-                }}
+      <nav>
+        <ul className="ul-bar-container">
+          <li>
+            <Link to="/">
+              {' '}
+              <FaAngleLeft
+                style={{ color: 'white', fontSize: '30px' }}
               />
-            </li>
-            <li className="last-bar-item">
-              <div className="icon-container">
-                <div>
-                  <Link to="/">
-                    <FaMicrophone />
-                  </Link>
-                </div>
-                <div>
-                  <Link to="/">
-                    <FaRegSun />
-                  </Link>
-                </div>
+            </Link>
+          </li>
+          <li>
+            <input
+              className="input-search"
+              placeholder="Search by currency"
+              value={searchParams.get('filter') || ''}
+              onChange={(e) => {
+                const filter = e.target.value;
+                if (filter) {
+                  setSearchParams({ filter });
+                } else {
+                  setSearchParams({});
+                }
+              }}
+            />
+          </li>
+          <li className="last-bar-item">
+            <div className="icon-container">
+              <div>
+                <Link to="/">
+                  <FaMicrophone
+                    style={{ color: 'white', fontSize: '18px' }}
+                  />
+                </Link>
               </div>
-            </li>
-          </ul>
-        </nav>
-      </header>
+              <div>
+                <Link to="/">
+                  <FaRegSun
+                    style={{ color: 'white', fontSize: '18px' }}
+                  />
+                </Link>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
       <div className="currency-container">
         {myState
           .filter((element) => {
