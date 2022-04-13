@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Outlet, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FaAngleLeft, FaRegSun, FaMicrophone } from 'react-icons/fa';
 import Currency from '../components/Currency';
 import { LoadData } from '../redux/CryptoReducer';
@@ -59,23 +59,24 @@ const Currencies = () => {
           </ul>
         </nav>
       </header>
-      {myState
-        .filter((element) => {
-          const filter = searchParams.get('filter');
-          if (!filter) return true;
-          const name = element.name.toLowerCase();
-          return name.startsWith(filter.toLowerCase());
-        })
-        .map((element) => (
-          <Link to={`/${element.id}`} key={element.id}>
-            <Currency
-              name={element.id}
-              symbol={element.symbol}
-              price={element.priceUsd}
-            />
-          </Link>
-        ))}
-      <Outlet />
+      <div className="currency-container">
+        {myState
+          .filter((element) => {
+            const filter = searchParams.get('filter');
+            if (!filter) return true;
+            const name = element.name.toLowerCase();
+            return name.startsWith(filter.toLowerCase());
+          })
+          .map((element) => (
+            <Link to={`/${element.id}`} key={element.id} className="card-currency">
+              <Currency
+                name={element.id}
+                symbol={element.symbol}
+                price={parseFloat(element.priceUsd).toFixed(2)}
+              />
+            </Link>
+          ))}
+      </div>
     </div>
   );
 };

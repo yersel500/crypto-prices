@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types';
+import { FaRegArrowAltCircleRight } from 'react-icons/fa';
 
 const Currency = ({ name, symbol, price }) => {
   const newSymbol = symbol.toLowerCase();
   const myLogo = `https://assets.coincap.io/assets/icons/${newSymbol}@2x.png`;
   return (
     <div>
-      <img src={myLogo} alt={name} />
-      <h2>{name}</h2>
-      <p>{symbol}</p>
-      <p>{price}</p>
+      <div className="arrow-container">
+        <FaRegArrowAltCircleRight />
+      </div>
+      <img src={myLogo} alt={name} className="currency-logo" />
+      <div className="general-info">
+        <h2 className="currency-name">{name}</h2>
+        <p className="symbol">{symbol}</p>
+        <p>{price}</p>
+      </div>
     </div>
   );
 };
