@@ -77,7 +77,10 @@ const CurrencyItem = () => {
         </div>
         <div>
           <h3>ChangePercent24Hr:</h3>
-          <p>{parseFloat(changePercent24Hr).toFixed(2)}</p>
+          <p>
+            {parseFloat(changePercent24Hr).toFixed(2)}
+            %
+          </p>
         </div>
       </div>
     </div>
