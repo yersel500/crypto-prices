@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { FaAngleLeft, FaRegSun, FaMicrophone } from 'react-icons/fa';
 
 const CurrencyItem = () => {
   const params = useParams();
@@ -12,35 +13,76 @@ const CurrencyItem = () => {
   const myLogo = `https://assets.coincap.io/assets/icons/${newSymbol}@2x.png`;
   return (
     <div>
-      <img src={myLogo} alt={id} />
-      <h2>
+      <nav>
+        <ul className="ul-bar-container">
+          <li>
+            <Link to="/">
+              <FaAngleLeft
+                style={{ color: 'white', fontSize: '30px' }}
+              />
+            </Link>
+          </li>
+          <li className="details-title">
+            Details Page
+          </li>
+          <li className="last-bar-item">
+            <div className="icon-container">
+              <div>
+                <Link to="/">
+                  <FaMicrophone
+                    style={{ color: 'white', fontSize: '18px' }}
+                  />
+                </Link>
+              </div>
+              <div>
+                <Link to="/">
+                  <FaRegSun
+                    style={{ color: 'white', fontSize: '18px' }}
+                  />
+                </Link>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <img
+        src={myLogo}
+        alt={id}
+        className="logo-details"
+      />
+      <h2 className="title-currency">
         Currency:
         {id}
       </h2>
-      <p>
-        Rank:
-        {rank}
-      </p>
-      <p>
-        symbol:
-        {symbol}
-      </p>
-      <p>
-        MarketCapUSD:
-        {marketCapUsd}
-      </p>
-      <p>
-        VolumeUSD24Hr:
-        {volumeUsd24Hr}
-      </p>
-      <p>
-        Current Price:
-        {priceUsd}
-      </p>
-      <p>
-        ChangePercent24Hr:
-        {changePercent24Hr}
-      </p>
+      <div className="details-text-container">
+        <div>
+          <h3>Rank:</h3>
+          <p>{rank}</p>
+        </div>
+        <div>
+          <h3>Symbol:</h3>
+          <p>{symbol}</p>
+        </div>
+        <div>
+          <h3>MarketCapUSD:</h3>
+          <p>{parseFloat(marketCapUsd).toFixed(2)}</p>
+        </div>
+        <div>
+          <h3>VolumeUSD24Hr:</h3>
+          <p>{parseFloat(volumeUsd24Hr).toFixed(2)}</p>
+        </div>
+        <div>
+          <h3>Current Price:</h3>
+          <p>{parseFloat(priceUsd).toFixed(2)}</p>
+        </div>
+        <div>
+          <h3>ChangePercent24Hr:</h3>
+          <p>
+            {parseFloat(changePercent24Hr).toFixed(2)}
+            %
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
